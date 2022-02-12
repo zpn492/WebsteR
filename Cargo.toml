@@ -7,3 +7,6 @@ edition = "2021"
 
 [dependencies]
 prelude = "0.2.1"
+threads = "0.1.0"
+thread = "0.1.0"
+joinhandle = "0.0.0"

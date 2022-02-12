@@ -2,12 +2,17 @@ use std::io::prelude::*;
 use std::net::TcpListener;
 use std::net::TcpStream;
 use std::fs;
+use webster::ThreadPool;
 
 fn main() 
     {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
+    let _pool = ThreadPool::new(4);
 
-    for stream in listener.incoming()
+    /* .take(x)
+    Will stop the for-loop after two requests.
+     */
+    for stream in listener.incoming().take(1)
         {
         /* unwrap
         For now, our handling of the stream consists of calling unwrap to terminate our program if the stream has 
@@ -21,7 +26,10 @@ fn main()
         */
         let _stream = stream.unwrap();
 
-        handle_connection(_stream);
+        _pool.execute(|| 
+            {
+            handle_connection(_stream);
+            });
         }
     println!("Connection established!");
     }

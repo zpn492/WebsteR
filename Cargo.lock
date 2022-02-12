@@ -3,14 +3,35 @@
 version = 3
 
 [[package]]
+name = "joinhandle"
+version = "0.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e74d99b10080d33847b8d39bb453cb81d1faa2055be8f6d158d329b26e069f37"
+
+[[package]]
 name = "prelude"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c70d2a17efd6d4063aa8a13d2ce7b0ceeef96ed9e2138c2803f7f4f9824c2cbb"
 
 [[package]]
+name = "thread"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "afe9c0e959dd1e7b871071b51bc674380d1889cd4fed9f4b3b1f5c1772d9f796"
+
+[[package]]
+name = "threads"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "33c91b6844452ec2a407b7eaecceae139a2a575edaedee82ababccce05b64284"
+
+[[package]]
 name = "webster"
 version = "0.1.0"
 dependencies = [
+ "joinhandle",
  "prelude",
+ "thread",
+ "threads",
 ]
